@@ -2,13 +2,16 @@
 
 
 def canUnlockAll(boxes):
-    unlocked = [0]
-    for box_id, box in enumerate(boxes):
-        if not box:
-            continue
-        for key in box:
-            if key < len(boxes) and key not in unlocked and key != box_id:
-                unlocked.append(key)
-    if len(unlocked) == len(boxes):
+    """
+    You have n number of locked boxes
+    in front of you. Each box is numbered sequentially.
+    """
+    boxOne = [0]
+    for key in boxOne:
+        for keyBox in boxes[key]:
+            if keyBox not in boxOne:
+                if keyBox < len(boxes):
+                    boxOne.append(keyBox)
+    if len(boxOne) == len(boxes):
         return True
     return False
